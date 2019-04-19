@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FastDFS-demo 测试页</title>
+
+    <style>
+        ul li{
+            background-color: aquamarine;
+            width: 400px;
+            height: 80px;
+            margin-top: 10px;
+            padding-top: 10px;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <ul>
+            <li>
+                <form id="form" action="/uploadFileForPage" method="post" enctype="multipart/form-data">
+                    选择文件： <input id="uploadfile" name="file" type="file" />
+                    <br/>
+                    <input style="margin-left: 85px; margin-top: 15px;" type="submit" value="提交文件">
+                </form>
+            </li>
+            <li>
+                <form id="form1" action="/downloadFile" method="post" enctype="multipart/form-data">
+                    请输入文件名称：<input type="text" name="fileName" />
+                    <br/>
+                    <input style="margin-left: 85px; margin-top: 15px;" type="submit" value="下载文件">
+                </form>
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+</html>
