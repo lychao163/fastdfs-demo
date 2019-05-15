@@ -14,16 +14,23 @@ server:
       timeout: 1800s
     context-path: /
 
+
+#fdfs 配置信息
 fdfs:
+  # 获取文件超时时间 单位毫秒
   so-timeout: 1500
-  connect-timeout: 600
+  # 连接超时时间 单位毫秒
+  connect-timeout: 2000
+  # TrackerList参数,支持多个
   #  thumb-image:             #缩略图生成参数
   #    width: 150
   #    height: 150
-  tracker-list:            #TrackerList参数,支持多个
-    - 10.138.30.58:22122
-      #  pool:
-      #从池中借出的对象的最大数目
-    #    max-total: 153
-    #获取连接时的最大等待毫秒数100
-#    max-wait-millis: 102
+  tracker-list:
+    - localhost:22122
+  pool:
+    #  允许创建资源的最大数量  dfs默认50
+    max-total: 300
+    #  获取连接时的最大等待毫秒数 当 blockWhenExhausted（默认true） 配置为 true 时，此值有效。 -1 代表无时间限制，一直阻塞直到有可用的资源
+    max-wait-millis: 2000
+    #  回收资源线程的执行周期，单位毫秒,  默认值 -1 ，-1 表示不启用线程回收资源。 fdfs 每过60秒进行一次后台对象清理的行动。
+    time-between-eviction-runs-millis: 60000
